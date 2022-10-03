@@ -1,0 +1,39 @@
+<section>
+    <article>
+        <h3> Two-away data binding </h3>
+        <div>
+            <input type="text"
+            [value]="nome" 
+            (input)="nome = event.value" #event />
+            <!-- [value] ASSOCIAÇÃO DE PROPRIEDADE  || (input) ASSOCIAÇÃO DE EVENTO -->
+
+            <p> Você digitou um nome: {{ nome }}</p>
+            <!-- NESTE GRUPO DE CODIGO, ESTÁ O USUARIO ALTERA O VALOR DO INPUT PARA OUTRA INFORMAÇÃO A VARIAVEL COM A INFO TAMBEM É ALTERADA SIMULTANEAMENTE -->
+
+
+            <input type="text"
+            [ngModel]="nome" 
+            (ngModelChange)="nome = $event" #event
+            />
+            <!-- ESTE INPUT ESTA COM UM BINDING DE PROPRIEDADE [ngModel] || E UM BINDING DE ENVENTO (ngModelChange)-->
+
+            <input type="text" [(ngModel)]="nome" 
+            />
+            <!-- A FORMA QUE SE FAZ O TWO-AWAY DATA-BINDING EM ANGULAR [(ngModel)] -->
+
+            <input type="text" bindon-ngModel="nome" 
+            />
+
+            <div>
+                <br>
+                <p> Meu nome é {{ pessoa.nome }} e tenho {{ pessoa.idade }} anos de Idade </p>
+                <input type="text" [(ngModel)]="pessoa.nome">
+                <input type="text" [(ngModel)]="pessoa.idade">
+            </div>
+            <!-- AQUI NESTA DIV ESTÁ SENDO USADO TWO-AWAY DATA-BINDING COM OBJETO -->
+
+            
+            <!-- OBSERVAÇÃO, DEVE IMPORTAR NO APP.MODULE.TS O FormsModule POIS ASSIM OS COMANDO DE TWO-AWAY DATA-BINDING FUNCIONARAM SEM ERRO -->
+        </div>
+    </article>
+</section>
