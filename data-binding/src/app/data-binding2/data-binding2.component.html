@@ -1,0 +1,41 @@
+<section>
+
+<article>
+
+    <h3> Class e Style Binding </h3>
+    <div> 
+        Selecione uma Classe: 
+        <select #classe (change)="0">
+            <option value="alert-success"> Sucesso </option>
+            <option value="alert-info"> Info </option>
+            <option value="alert-warning"> Alerta </option>
+            <option value="alert-danger"> Erro </option>
+        </select>
+        <!-- AQUI NESTE SELECT ESTÁ A FRASE MAIS O COMBOBOX COM AS OPÇÕES -->
+        <br>
+        <br>
+
+        <div class="alert {{ classe.value }} " role="alert"> 
+            TEXTO COLORIDO CONFORME O VALOR DO COMBOBOX
+        </div>
+        <!-- NESTA DIV FOI CONFIGURADO PARA ALTERAR O TIPO DO ALERTA CONFORME VOCÊ SELECIONA -->
+
+        <div class="alert" role="alert" [class.alert-success]="classe.value == 'alert-sucess'"> Sucesso </div>
+        <div class="alert" role="alert" [class.alert-info]="classe.value == 'alert-info'"> Info </div>
+        <div class="alert" role="alert" [class.alert-warning]="classe.value == 'alert-warning'"> Alerta </div>
+        <div class="alert" role="alert" [class.alert-danger]="classe.value == 'alert-danger'"> Erro </div>
+        <!-- NESTE GRUPO DE DIV ESTÁ SENDO CONFIGURADO QUANDO ESCOLHIDO UMA OPÇÃO A LINHA FARÁ ALGO COMO MUDAR A COR -->
+    </div>
+
+    <div class="alert alert-danger" role="alert" [style.display]="classe.value == 'alert-danger' ? 'block' : 'none'">
+        ESSE TEXTO SOMENTE APARECE COM ERRO
+    </div>
+    <!-- ESTA DIV FOI CONFIGURADA PARA APARECER O ALERTA DE ERRO APENAS QUANDO DER ERRO ( ? SIGNIFICA = MOSTRE O ESTILO ) E (: SIGNIFICA = CASO O OUTRO NÃO MOSTRE OUTRO )-->
+
+</article>
+
+
+
+
+</section>
+
