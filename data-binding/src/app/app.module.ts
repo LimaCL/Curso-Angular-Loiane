@@ -7,6 +7,8 @@ import { DataBindingComponent } from './data-binding/data-binding.component';
 import { DataBinding2Component } from './data-binding2/data-binding2.component';
 import { DataBinding3Component } from './data-binding3/data-binding3.component';
 import { DataBinding4Component } from './data-binding4/data-binding4.component';
+import { DataBinding5Component } from './data-binding5/data-binding5.component';
+import { InputPropertyComponent } from './input-property/input-property.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { DataBinding4Component } from './data-binding4/data-binding4.component';
     DataBindingComponent,
     DataBinding2Component,
     DataBinding3Component,
-    DataBinding4Component
+    DataBinding4Component,
+    DataBinding5Component,
+    InputPropertyComponent
   ],
   imports: [
     BrowserModule,
