@@ -11,6 +11,8 @@ import { DataBinding5Component } from './data-binding5/data-binding5.component';
 import { InputPropertyComponent } from './input-property/input-property.component';
 import { DataBinding6Component } from './data-binding6/data-binding6.component';
 import { EventOutputComponent } from './event-output/event-output.component';
+import { CicloComponent } from './ciclo/ciclo.component';
+import { DataBinding7Component } from './data-binding7/data-binding7.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { EventOutputComponent } from './event-output/event-output.component';
     DataBinding5Component,
     InputPropertyComponent,
     DataBinding6Component,
-    EventOutputComponent
+    EventOutputComponent,
+    CicloComponent,
+    DataBinding7Component
   ],
   imports: [
     BrowserModule,
