@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'contador',
@@ -9,7 +9,10 @@ export class EventOutputComponent implements OnInit {
   
   valor: number = 0;
 
+  @ViewChild('campoInput') campoValorInput!: HTMLElement;
+
   incrementa() {
+    console.log(this.campoValorInput);
     this.valor++;
   }
 
