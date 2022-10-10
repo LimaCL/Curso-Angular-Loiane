@@ -1,0 +1,26 @@
+<h3> Styles com property binding (style binding) </h3>
+
+<button 
+    [style.background]="ativo ? 'blue' : 'grey'"
+    [style.color]="ativo ? 'white' : 'black'"
+    [style.fontWeight]="ativo ? 'bold' : 'normal'"
+    [style.fontSize]="tamanhoFonte + 'px'"
+    (click)="mudarAtivo()"
+    >
+Mudar Atributo
+</button>
+
+<br><br>
+
+<h5> Styles com Diretiva ngStyle </h5>
+<button
+    [ngStyle]="{
+    'backgroundColor': (ativo ? 'blue' : 'grey'),
+    'color': (ativo ? 'white' : 'black'),
+    'fontWeight': (ativo ? 'bold' : 'normal'),
+    'fontSize': (tamanhoFonte + 'px')
+    }"
+    (click)="mudarAtivo()"
+    >
+Mudar Atributo
+</button>
