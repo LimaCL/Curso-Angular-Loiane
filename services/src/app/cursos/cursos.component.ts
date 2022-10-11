@@ -12,8 +12,9 @@ export class CursosComponent implements OnInit {
 
   cursosService!: CursosService;
 
-  constructor() {
-    this.cursosService = new CursosService();
+  constructor(_cursosService: CursosService) {
+    //this.cursosService = new CursosService();
+    this.cursosService = _cursosService;
    }
 
   ngOnInit(): void {
