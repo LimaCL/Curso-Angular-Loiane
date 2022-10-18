@@ -15,10 +15,6 @@ import { CamelCasePipe } from './camel-case.pipe';
     BrowserModule
   ],
   providers: [
-    {
-      provide: LOCALE_ID,
-      useValue: 'pt-BR'
-    }
   ],
   bootstrap: [AppComponent]
 })
