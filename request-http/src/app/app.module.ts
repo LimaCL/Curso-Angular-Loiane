@@ -6,12 +6,14 @@ import { CursosModule } from './cursos/cursos.module';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
+import { PocBaseComponent } from './unsubscribe-rxjs/poc-base/poc-base.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
+    HomeComponent,
+    PocBaseComponent,
   ],
   imports: [
     BrowserModule,
