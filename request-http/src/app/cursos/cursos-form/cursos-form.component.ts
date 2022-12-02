@@ -28,21 +28,23 @@ export class CursosFormComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let registro = null;
+    //let registro = null;
 
-    this.route.params
-    .pipe(
-      map((params: any) => params['id']),
-      switchMap(id => this.service.loadById(id))
-    )
-    .subscribe(curso => this.updateForm(curso));
+    //this.route.params
+    //.pipe(
+     // map((params: any) => params['id']),
+    //  switchMap(id => this.service.loadById(id))
+   // )
+    //.subscribe(curso => this.updateForm(curso));
 
 
-    console.log(registro);
+   // console.log(registro);
+
+   const curso = this.route.snapshot.data['curso'];
 
     this.form = new FormGroup({
-      id: new FormControl(null),
-      nome: new FormControl('', [Validators.required, Validators.minLength(3), Validators.maxLength(250)])
+      id: new FormControl(curso.id),
+      nome: new FormControl(curso.nome, [Validators.required, Validators.minLength(3), Validators.maxLength(250)])
     });
   }
 
@@ -66,12 +68,12 @@ export class CursosFormComponent implements OnInit {
     }
   }
 
-  updateForm(curso: any){
-    this.form.patchValue({
-      id: curso.id,
-      nome: curso.nome
-    })
-  }
+  //updateForm(curso: any){
+  //  this.form.patchValue({
+  //    id: curso.id,
+ //     nome: curso.nome
+  //  })
+  //}
 
   onCancel() {
     this.submitted = false;
