@@ -23,7 +23,7 @@ export class CursosFormComponent implements OnInit {
     private modal: AlertModalService,
     private location: Location,
     private route: ActivatedRoute
-    ) {
+  ) {
   }
 
   ngOnInit(): void {
@@ -32,15 +32,15 @@ export class CursosFormComponent implements OnInit {
 
     //this.route.params
     //.pipe(
-     // map((params: any) => params['id']),
+    // map((params: any) => params['id']),
     //  switchMap(id => this.service.loadById(id))
-   // )
+    // )
     //.subscribe(curso => this.updateForm(curso));
 
 
-   // console.log(registro);
+    // console.log(registro);
 
-   const curso = this.route.snapshot.data['curso'];
+    const curso = this.route.snapshot.data['curso'];
 
     this.form = new FormGroup({
       id: new FormControl(curso.id),
@@ -57,21 +57,49 @@ export class CursosFormComponent implements OnInit {
     console.log(this.form.value);
     if (this.form.valid) {
       console.log('submit');
-      this.service.create(this.form.value).subscribe(
-        success => {
-          this.modal.showAlertSucess('Curso criado com Sucesso');
-          this.location.back();
-        },
-        error => this.modal.showAlertDanger('Erro ao criar curso!'),
-        () => console.log('requeste completo')
-      );
+
+      let msgSuccess = 'Curso criado com sucesso';
+      let msgError = 'Erro ao criar curso, tente novamente!'
+      if(this.form.value.id){
+        msgSuccess = 'Curso atualizado com sucesso';
+        msgError = 'Erro ao atualizar curso, tente novamente!'
+      }
+
+    this.service.save(this.form.value).subscribe(
+      success => {
+            this.modal.showAlertSucess('Curso atualizado com sucesso');
+            this.location.back();
+      },
+      error => this.modal.showAlertDanger('Erro ao atualizar curso, tente novamente!')
+    )
+
+
+      /*if (this.form.value.id) {
+        this.service.update(this.form.value).subscribe(
+          success => {
+
+          },
+          error => this.modal.showAlertDanger('Erro ao atualizar curso, tente novamente!'),
+          () => console.log('Update Completo')
+        )
+      } else {
+        this.service.create(this.form.value).subscribe(
+          success => {
+            this.modal.showAlertSucess('Curso criado com Sucesso');
+            this.location.back();
+          },
+          error => this.modal.showAlertDanger('Erro ao criar curso!'),
+          () => console.log('requeste completo')
+        );
+      }*/
+
     }
   }
 
   //updateForm(curso: any){
   //  this.form.patchValue({
   //    id: curso.id,
- //     nome: curso.nome
+  //     nome: curso.nome
   //  })
   //}
 

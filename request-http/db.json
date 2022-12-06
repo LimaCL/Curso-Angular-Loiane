@@ -2,11 +2,11 @@
   "cursos": [
     {
       "id": 1,
-      "nome": "Angular"
+      "nome": "Angular Material"
     },
     {
-      "nome": "Python",
-      "id": 2
+      "id": 2,
+      "nome": "Python 3"
     },
     {
       "nome": "C#",
@@ -29,24 +29,8 @@
       "id": 7
     },
     {
-      "nome": "Java2",
-      "id": 8
-    },
-    {
-      "nome": "Java2",
-      "id": 9
-    },
-    {
-      "nome": "Java3",
-      "id": 10
-    },
-    {
-      "id": 11,
-      "nome": "Java2"
-    },
-    {
       "id": 12,
-      "nome": "COBOL"
+      "nome": "COBOL 2"
     }
   ]
 }
