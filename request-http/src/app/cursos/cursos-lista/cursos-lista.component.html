@@ -1,0 +1,56 @@
+<div class="card mt-3">
+    <div class="card-header">
+        <div class="float-start">
+            <h4> Cursos </h4>
+        </div>
+        <div class="float-end">
+            <button type="button" class="btn btn-primary" [routerLink]="['novo']"> Novo Curso </button>
+            <button type="button" class="btn btn-primary" (click)="onRefresh()"> Atualizar  </button>
+        </div>
+    </div>
+    <div class="card-body">
+        <table class="table table-hover" *ngIf="cursos$ | async as cursos; else loadingNoError">
+            <thead>
+                <tr>
+                    <th> # </th>
+                    <th> Curso </th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let curso of cursos">
+                    <td> {{ curso.id }} </td>
+                    <td> {{ curso.nome }} </td>
+                    <td></td>
+                    <td>
+                        <span class="float-end">
+                            <button class="btn btn-outline-warning mb-1 btn-sm" (click)="onEdit(curso.id)"> Atualizar</button>
+                            <button class="btn btn-outline-danger mb-1 btn-sm"  (click)="onDelete(curso)"> Remover </button>
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <ng-template #loadingNoError>
+            <div *ngIf="error$ | async; else loading">
+                Erro ao carregar cursos. Tente novamente mais tarde.
+            </div>
+        <ng-template #loading>
+            <div class="d-flex align-items-center">
+                <strong>Carregando Cursos ...</strong>
+                <div class="spinner-border ms-auto" role="status" aria-hidden="true"></div>
+            </div>
+        </ng-template>
+        </ng-template>
+
+    </div>
+</div>
+
+<ng-template #deleteModal>
+  <div class="modal-body text-center">
+    <p>Tem certeza que deseja excluir o curso? </p>
+    <button type="button" class="btn btn-danger" (click)="confirm()"> SIM</button>
+    <button type="button" class="btn btn-default" (click)="decline()">  NÃO</button>
+  </div>
+</ng-template>
