@@ -23,6 +23,17 @@
     {
       "nome": "Java",
       "id": 6
+<<<<<<< HEAD
+=======
+    },
+    {
+      "nome": "HTML",
+      "id": 7
+    },
+    {
+      "id": 12,
+      "nome": "COBOL 2"
+>>>>>>> da8e857bf49800e978645ff6785e1aeddc04c98a
     }
   ]
 }
